@@ -1,9 +1,6 @@
-﻿var items;
-var getAllButton;
+﻿var getAllButton;
 
 window.onload = function () {
-    items = [{ name: 'i1', id: 0 }, { name: 'i2', id: 1 }, { name: 'i3', id: 2 }, { name: 'i4', id: 3 }, { name: 'i5', id: 4 }];
-    //items = [1, 2, 3, 4, 5];
     getAllButton = document.querySelector('.B_getAll');
     getAllButton.addEventListener('click', GetAll, false);
 }
@@ -44,6 +41,11 @@ function GetAll() {
 }
 
 function AddItem() {
+    getAllButton.setAttribute("disabled", "true");
+    let button_ClearAll = document.querySelector('.B_clearAll_disabled');
+    if (items.length < 1 & button_ClearAll) {
+        RemoveDisabled('.B_clearAll_disabled', 'B_clearAll');
+    }
     let num = items.length;
     let newItem = CreateElement('div', 'item', '', 'id', num);
     let contentBody = document.querySelector('.datas');
@@ -61,12 +63,15 @@ function DeleteItem(event) {
     let deleteButton = event.currentTarget;
     let div = deleteButton.parentNode;
     let id = div.id;
-    delete items[id];
+    items.splice(id,1);
+    items.length - 1;
     div.remove();
+    
     let datas = document.querySelector('.datas').childNodes;
-    if (datas.length <= 1) {
+    let button = document.querySelector('.B_clearAll');
+    if (datas.length < 1 & button) {
         SetDisabled('.B_clearAll', '.B_clearAll_disabled');
-        RemoveDisabled('.B_getAll');
+        //RemoveDisabled('.B_getAll');
     }
 }
 
@@ -80,7 +85,7 @@ function ClearAll(event) {
     let b_clearAll = event.target;
     b_clearAll.setAttribute('disabled', 'true');
     b_clearAll.className = "B_clearAll_disabled";
-    RemoveDisabled('.B_getAll');
+    //RemoveDisabled('.B_getAll');   
 }
 
 function EditItem(event) {
@@ -102,7 +107,7 @@ function EditItem(event) {
     saveButton.addEventListener('click', SaveNewItem, false);
 }
 
-function SaveNewItem() {
+function SaveNewItem() {   
     let div = this.parentNode;
     let newValue = div.firstChild.value;
     div.value = newValue;
@@ -118,4 +123,25 @@ function SaveNewItem() {
     let butSave = div.lastChild;
     div.replaceChild(butEdit, butSave);
     butEdit.addEventListener('click', EditItem, false);
+}
+function RemoveDisabled(str, newStr) {
+    let button = document.querySelector(str);
+    button.removeAttribute('disabled');
+    if (newStr) {
+        button.className = newStr;
+    }
+}
+
+function SetDisabled(str, newStr) {
+    let button = document.querySelector(str);
+    button.setAttribute('disabled', 'true');
+    button.className = newStr;    
+    }
+
+function CreateElement(elem, className, innerText, attr, value) {
+    let element = document.createElement(elem);
+    element.className = className;
+    element.innerText = innerText;
+    element.setAttribute(attr, value);
+    return element;
 }

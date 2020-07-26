@@ -1,9 +1,17 @@
-﻿body {
+﻿
+body {
+    margin-left: 0px;
 }
 
 .header {
+    width: 340px;
+    height: 50px;
+    padding-left: 35px;
     text-align: left;
     text-decoration: double;
+    background-color: #95a1c5;
+    margin-top: 20px;
+    margin-bottom: 18px;
 }
 
 .div {
@@ -15,31 +23,45 @@
     width: 150px;
     height: 40px;
     margin-left: 20px;
-    background-color: red;
-    color: black;
+    background-color: #F45A38;
+    color: white;
     font-family: Arial;
     font-size: 16px;
     border: solid;
+    border-radius: 5px;
 }
 
-:disabled {
+    .B_getAll:hover {
+        background-color: #fad6c4;
+        color: black;
+    }
+
+    .B_getAll:disabled {
+        background-color: lightgrey;
+        border: none;
+        color: white;
+    }
+
+.B_getAll:disabled:hover {
     background-color: lightgrey;
     border: none;
+    color: white;
 }
 
 .B_clearAll_disabled {
-    width: 140px;
+    width: 150px;
     height: 35px;
     margin-left: 20px;
-    /*    background-color: red;*/
-    color: black;
+    color: white;
     font-family: Arial;
     font-size: 16px;
     border: none;
+    border-radius: 8px;
+    background-color:#dbe3f8;
 }
 
 .B_clearAll {
-    width: 140px;
+    width: 150px;
     height: 35px;
     margin-left: 20px;
     background-color: red;
@@ -47,16 +69,19 @@
     font-family: Arial;
     font-size: 16px;
     border: solid;
+    border-radius: 8px;
 }
 
 .item {
-    width: 250px;
-    height: 30px;
+    width: 350px;
+    height: 50px;
     background-color: grey;
     margin: 10px;
-    color: black;
+    color: #000000;
     font-family: Arial;
-    font-size: 14px;
+    font-size: 19px;
+    font-stretch: expanded;
+    font-weight: bold;
     text-align: center;
     border: none;
     align-content: center;
@@ -64,68 +89,88 @@
 }
 
 .itemText {
-    width: 50px;
+    width: 100px;
     padding: 1px 2px;
     vertical-align: middle;
     text-align: center;
     background-color: grey;
     color: black;
     border: none;
+    font-size: 19px;
+    font-weight: bold;
 }
 
 .B_Delete {
     width: 80px;
-    height: 20px;
-    /*    margin-left: 20px;*/
+    height: 30px;
     background-color: #d5d5d5;
     color: black;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     float: right;
-    margin: 5px;
+    margin: 10px;
+    border-radius: 5px;
 }
+
+    .B_Delete:hover {
+        background-color: #ffffff;
+        color: blue;
+    }
 
 .B_Edit {
     width: 80px;
-    height: 20px;
-    /*    margin-left: 20px;*/
+    height: 30px;
     background-color: #d5d5d5;
     color: black;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     float: right;
-    margin: 5px;
+    margin: 10px;
     position: relative;
+    border-radius: 5px;
 }
+
+    .B_Edit:hover {
+        background-color: #ffffff;
+    }
 
 .B_Save {
     width: 80px;
-    height: 20px;
-    /*    margin-left: 20px;*/
+    height: 30px;
     background-color: #d5d5d5;
-    color: black;
+    color: red;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     float: right;
-    margin: 5px;
+    margin: 10px;
+    border-radius: 5px;
 }
 
+    .B_Save:hover {
+        background-color: #ffffff;
+    }
+
 .B_addItem {
-    width: 140px;
+    width: 150px;
     height: 35px;
     margin-left: 20px;
     background-color: lightblue;
-    color: black;
+    color: blue;
+    font-weight: 200;
     font-family: Arial;
     font-size: 16px;
     border: solid;
+    border-radius: 8px;
 }
 
 .editable {
-    width: 50px;
+    width: 60px;
+    height: 25px;
     padding: 1px 2px;
     vertical-align: -webkit-baseline-middle;
+    margin-top: 10px;
+    margin-left: 5px;
 }
